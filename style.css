@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap");
+
+:root {
+  --duration: 5.2s; /* Reduced duration by 35% */
+  --rep: 10;
+  --color1: #f08484;
+  --color2: #FFC371;
+  --coloraccent: #ff7a5f;
+}
+
+body {
+  font-family: "Quicksand";
+  color: black;
+  font-weight: 300;
+  text-align: center;
+}
+
+.container {
+  width: 195px; /* Reduced width by 35% */
+  height: 253.5px; /* Reduced height by 35% */
+  background-color: white;
+  position: absolute;
+  border-radius: 7.8%; /* Reduced border-radius */
+  box-shadow: 0.65px 5.2px 6.5px 0.65px rgb(44, 62, 80, 0.3); /* Adjusted box-shadow */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.material-icons.md-18 {
+  font-size: 11.7px; /* Reduced font size by 35% */
+  margin-left: 39px; /* Adjusted margin */
+  margin-top: 13px; /* Adjusted margin */
+  color: var(--coloraccent);
+  position: absolute;
+  cursor: pointer;
+}
+
+#replay {
+  display: none;
+}
+
+h1 {
+  margin-top: 11.5px; /* Adjusted margin */
+  font-size: 1.95rem; /* Reduced font size by 35% */
+  font-weight: 300;
+  color: rgb(38, 38, 38);
+}
+
+.background-circle {
+  width: 156px; /* Reduced width by 35% */
+  height: 156px; /* Reduced height by 35% */
+  background: linear-gradient(to right, var(--color1), var(--color2));
+  border: none;
+  clip-path: circle(50%);
+  margin: auto;
+  margin-top: -6.5px; /* Adjusted margin */
+  background-size: 128% 128%; /* Adjusted background-size */
+  animation: gradient 5.2s ease infinite; /* Adjusted animation duration */
+}
+
+.circle {
+  width: 156px; /* Reduced width by 35% */
+  height: 156px; /* Reduced height by 35% */
+  justify-content: center;
+  align-items: center;
+  background: white;
+  background-size: 195% 195%; /* Adjusted background-size */
+  clip-path: circle(25%);
+  margin: auto;
+  margin-top: -16.25px; /* Adjusted margin */
+  border: none;
+  position: relative;
+}
+
+.circle::after {
+  content: "";
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-size: 10.4px; /* Reduced font size by 35% */
+  font-weight: 400;
+  color: black;
+  display: flex;
+}
+
+.circle.anim {
+  animation: circle var(--duration) var(--rep);
+}
+
+.circle.anim::after {
+  animation: content var(--duration) var(--rep);
+}
+
+h2 {
+  margin-top: 11.5px; /* Adjusted margin */
+  font-size: 16.25px; /* Reduced font size by 35% */
+  font-weight: 300;
+  color: rgb(38, 38, 38);
+}
+
+@keyframes circle {
+  0%, 50%, 100% {
+    clip-path: circle(25%);
+  }
+}
+
+@keyframes content {
+  0%, 50% {
+    content: "BREATHE IN";
+  }
+  51%, 100% {
+    content: "BREATHE OUT";
+  }
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}

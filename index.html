@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+ <head>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <i class="material-icons md-18 play" onclick="startTimer()">
+      play_circle_outline</i>
+    <i class="material-icons md-18 replay" id="replay" onclick="stopTimer()">
+      replay</i>
+    <h1>Walk</h1>
+    <div class="background-circle">
+      <div class="inner"></div>
+      <div class="circle">
+      </div>
+    </div>
+    <h2 id="countdown">80</h2>
+  </div>
+<script>
+var timeleft;
+var downloadTimer;
+var duration = 80;
+
+function startTimer() {
+  document.getElementById("countdown").innerHTML = duration;
+  $(".replay").toggle();
+  $(".play").toggle();
+  timeleft = duration - 1;
+  $(".circle").toggleClass("anim");
+  downloadTimer = setInterval(function () {
+    if (timeleft <= 0) {
+      clearInterval(downloadTimer);
+      document.getElementById("countdown").innerHTML = duration;
+      $(".circle").toggleClass("anim");
+  $(".replay").toggle();
+  $(".play").toggle();
+  document.getElementById("countdown").innerHTML = "Done";
+    } else {
+      document.getElementById("countdown").innerHTML = timeleft;
+    }
+    timeleft -= 1;
+  }, 1000);
+}
+
+function stopTimer() {
+  $(".replay").toggle();
+  $(".play").toggle();
+  $(".circle").toggleClass("anim");
+  clearInterval(downloadTimer);
+  document.getElementById("countdown").innerHTML = duration;
+  timeleft = duration - 1;
+}
+</script>
+</body>
+
+</html>
